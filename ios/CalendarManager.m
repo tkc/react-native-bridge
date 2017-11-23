@@ -13,6 +13,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 RCT_REMAP_METHOD(findEvents,
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject){
+  
   NSArray *event = [NSArray arrayWithObjects:@"A", @"B", @"C", nil];
   if (event) {
     resolve(event);

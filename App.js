@@ -5,7 +5,8 @@
  */
 
 import React, {Component} from 'react';
-import {NativeModules, StyleSheet, Text, View} from 'react-native';
+import {NativeModules, StyleSheet} from 'react-native';
+import MapView from './MapView.js';
 
 const CalendarManager = NativeModules.CalendarManager;
 
@@ -13,20 +14,24 @@ export default class App extends Component<{}> {
 
   componentWillMount() {
     CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
-
     CalendarManager.findEvents().then(data => {
       console.log(data);
     }).catch();
   }
 
   render() {
-    return (
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            React Native Bridge
-          </Text>
-        </View>
-    );
+    return <MapView
+        style={{flex: 1}}
+        zoomEnabled={false}
+    />;
+
+    // return (
+    //     <View style={styles.container}>
+    //       <Text style={styles.welcome}>
+    //         React Native Bridge
+    //       </Text>
+    //     </View>
+    // );
   }
 }
 
